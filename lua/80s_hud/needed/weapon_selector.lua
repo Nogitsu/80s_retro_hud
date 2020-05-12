@@ -68,6 +68,9 @@ hook.Add( "HUDPaint", "80s:WeaponSelector", function()
     local sweps = ply:GetWeapons()
     local swep = sweps[ selected ]
 
+    if not swep then return end
+    if not IsValid( swep ) then return end
+
     local font = "LazerF25"
     local font_h = draw.GetFontHeight( font )
     surface.SetFont( font )
